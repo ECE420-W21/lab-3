@@ -1,5 +1,5 @@
 main: main.c Lab3IO.c
-	gcc -g -Wall main.c Lab3IO.c -o main
+	gcc -g -Wall main.c Lab3IO.c -o main -fopenmp
 
 datagen: datagen.c Lab3IO.c
 	gcc -g -Wall datagen.c Lab3IO.c -o datagen
