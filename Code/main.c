@@ -23,7 +23,6 @@
 int thread_count;
 int serial(double** Au, int size);
 int parallel(double** Au, int size);
-int elimination(int num_count);
 
 /*--------------------------------------------------------------------*/
 int main(int argc, char* argv[]) {
@@ -40,9 +39,7 @@ int main(int argc, char* argv[]) {
     double **Au; int size; 
     Lab3LoadInput(&Au, &size);
 
-    //TO DO Parallel implementation using OpenMP
     parallel(Au, size);
-    //elimination(thread_count);
     //serial(Au, size);
     return 0;
 }  /* main */
@@ -106,10 +103,6 @@ int parallel(double** Au, int size){
                         Au[index[i]][j] -= Au[index[k]][j] * temp;
                 }
             }
-            // #pragma omp single
-            // {
-            //     PrintMat(Au, size, size);
-            // }
 
             /*Jordan elimination*/
             for (k = size - 1; k > 0; --k){
